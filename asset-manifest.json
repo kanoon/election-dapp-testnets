@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/election-dapp-testnets/static/css/main.e5ea739b.css",
+    "main.js": "/election-dapp-testnets/static/js/main.aa25029b.js",
+    "index.html": "/election-dapp-testnets/index.html",
+    "main.e5ea739b.css.map": "/election-dapp-testnets/static/css/main.e5ea739b.css.map",
+    "main.aa25029b.js.map": "/election-dapp-testnets/static/js/main.aa25029b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e5ea739b.css",
+    "static/js/main.aa25029b.js"
+  ]
+}
