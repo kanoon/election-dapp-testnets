@@ -27,15 +27,21 @@ function App() {
       alert("Failed to connect wallet. Please try again.");
     }
   };
-
+  const fetchCandidates = async () => {
+    if (!walletAddress) return; // Fetch only when wallet is connected
+    setLoading(true);
+    const candidatesList = await getCandidates();
+    setCandidates(candidatesList);
+    setLoading(false);
+  };
   useEffect(() => {
-    const fetchCandidates = async () => {
-      if (!walletAddress) return; // Fetch only when wallet is connected
-      setLoading(true);
-      const candidatesList = await getCandidates();
-      setCandidates(candidatesList);
-      setLoading(false);
-    };
+    // const fetchCandidates = async () => {
+    //   if (!walletAddress) return; // Fetch only when wallet is connected
+    //   setLoading(true);
+    //   const candidatesList = await getCandidates();
+    //   setCandidates(candidatesList);
+    //   setLoading(false);
+    // };
     fetchCandidates();
   }, [walletAddress]); // Refetch when the walletAddress changes
 
@@ -48,9 +54,12 @@ function App() {
     try {
       await voteForCandidate(candidateId);
       alert("Vote successful!");
-    } catch (error) {
+      fetchCandidates();
+    } catch (error: any) {
+      // Extract the reason for the error
+      const errorMessage = error?.reason || "An error occurred while voting.";
       console.error("Error voting:", error);
-      alert("Vote failed!");
+      alert(errorMessage); // Show the error message to the user
     }
   };
 

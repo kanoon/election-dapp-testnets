@@ -9,11 +9,14 @@
     "react-dom": "^19.0.0",
     "react-scripts": "5.0.1"
   },
+   "homepage": "https://kanoon.github.io/election-dapp-testnets",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -35,6 +38,7 @@
   },
   "devDependencies": {
     "@types/react": "^19.0.2",
-    "@types/react-dom": "^19.0.2"
+    "@types/react-dom": "^19.0.2",
+    "gh-pages": "^6.2.0"
   }
 }
